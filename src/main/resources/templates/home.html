@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{core :: head}">
+<title id="pageTitle">Super Hiper Express - Tracking system</title>
+</head>
+<body>
+	<div class="container">
+		<div th:replace="~{core :: logo}">Logo</div>
+
+		<form action="/tracking">
+			<label for="order-id">Número do pedido:</label><br> 
+			<input type="text" id="order-id" name="orderId" value="">
+			<button class="btn btn-primary" type="submit">Buscar</button>
+		</form>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+<head th:fragment="head">
+	<meta charset="UTF-8" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<title th:include=":: #pageTitle">Layout Generic Title</title>
+	<style>
+	.logo-container {
+		background-color: #f2c02c;
+		color: #000;
+	}
+	
+	.logo {
+		font-family: 'Open Sans', sans-serif;
+		font-size: 2.5rem;
+	}
+	</style>
+</head>
+
+<div th:fragment="logo" class="logo-container mb-3 p-3 d-flex">
+<!-- 	<img src="imgs/logotipo.png" alt="logotipo"> -->
+	<span class="logo">Super Hiper Expresss - Tracking System</span>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{core :: head}">
+<title id="pageTitle">Tracking</title>
+</head>
+
+<body>
+	<div class="container">
+		<div th:replace="~{core :: logo}">Logo</div>
+
+		<div class="h-100 p-5 bg-light border rounded-3">
+			<h2>Pedido <span th:text="${orderId}">123</span></h2>
+			<p th:text="${order.currentPosition.status}">Status pedido atual</p>
+			<p th:text="${#temporals.format(order.currentPosition.now,'dd/MM/yyyy hh:mm:ss')}">Data e Horário </p>
+			<p class="text-muted" th:text="${order.currentPosition.address.description}">Endereço destino ou Serviço(?)</p>
+			
+			<!-- ${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')} -->
+		</div>
+
+		<div class="h-100 p-5 border">
+			
+			<div class="card mb-2" th:each="step : ${order.tracking}">
+			  <div class="row g-0">
+			    <div class="col-md-4">
+			      <div class="card-body">
+			        <p class="card-text" th:text="${#temporals.format(step.now, 'dd/MM/yyyy')}">Data</p>
+			        <p class="card-text" th:text="${#temporals.format(step.now, 'hh:mm:ss')}">Horario</p>
+			        <p class="card-text" th:text="${step.address.description}"><small class="text-muted">Endereço</small></p>
+			      </div>
+			    </div>
+			    <div class="col-md-8">
+			      <div class="card-body">
+			        <h5 class="card-title" th:text="${step.status}">Status</h5>
+			        <p class="card-text">
+			        <span th:text="*{step.sourceService != null}? 'De '+*{step.sourceService.description} : ''">De serviço remetente</span>
+			        <span th:text="*{step.destinationService != null}? ' para '+*{step.destinationService.description} : ''"> para Serviço destino</span></p>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
